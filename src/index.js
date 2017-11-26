@@ -1,5 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import AppContainer from './AppContainer';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import {applyMiddleware, createStore} from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import {composeWithDevTools} from 'redux-devtools-extension';
+
+import {loadNews} from "./actions";
+import initialState from './store';
+import reducer from './reducer';
+import {loadNewsSaga} from './newsDownload'
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+
+sagaMiddleware.run(loadNewsSaga);
+store.dispatch(loadNews(initialState.paging));
+
+ReactDOM.render(
+    <AppContainer store={store} />
+    , document.getElementById('root')
+);
+
+const mapStateToProps = (state) => (state);
