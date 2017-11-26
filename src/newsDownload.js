@@ -19,7 +19,6 @@ export function* loadNews() {
     } else {
         news.sort(sortName);
     }
-    yield put(newsLoaded(news));
     let pageNews = news.slice((selectPage - 1) * countNewsOnPage, selectPage * countNewsOnPage);
     yield put(newsLoaded(pageNews, Math.ceil(news.length / countNewsOnPage)));
 }
