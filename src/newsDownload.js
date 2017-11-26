@@ -13,7 +13,6 @@ export function* loadNews() {
     news = Object.values(JSON.parse(
         (yield request.get(api_options).catch(error => console.error)).response_text
     ).response.ITEMS);
-    console.log(fieldSort);
     if (fieldSort === sortFieldsSelection.DATE) {
         news.sort(sortDate);
     } else {
