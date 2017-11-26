@@ -15,7 +15,7 @@ export default (state, action = {}) => {
             return {...state, fieldSort: action.payload};
         case NEWS_LOADED:
             console.log(action);
-            return {...state, news: action.payload};
+            return {...state, news: action.payload.news, paging: {...state.paging, allPages: action.payload.allPages}};
         default:
             return state;
     }

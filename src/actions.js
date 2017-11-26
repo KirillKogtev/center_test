@@ -23,7 +23,7 @@ export const sortNewsChange = (val) => ({
     payload: val,
 });
 
-export const newsLoaded = (val) => ({
+export const newsLoaded = (news, allPages) => ({
     type: NEWS_LOADED,
-    payload: val,
+    payload: {news, allPages},
 });
