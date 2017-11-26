@@ -6,6 +6,7 @@ import {Toolbar, ToolbarGroup, ToolbarTitle} from 'material-ui/Toolbar';
 import {MenuItem, DropDownMenu, Subheader} from 'material-ui';
 import {GridList, GridTile} from 'material-ui/GridList';
 
+import Pagination from 'material-ui-pagination';
 
 
 import styles from './styles';
@@ -20,11 +21,7 @@ class App extends Component {
         };
     }
 
-
-
     getDate = (date) => new Date(date * 1000).toLocaleDateString();
-
-    handleChange = (event, index, value) => this.setState({value});
 
     render() {
 
@@ -57,7 +54,14 @@ class App extends Component {
                         <GridList
                             cols={3}
                         >
-                            <Subheader>Новости</Subheader>
+                            <Subheader>
+                                Новости
+                                <Pagination
+                                    total={this.props.paging.allPages}
+                                    current={this.props.paging.selectPage}
+                                    display={5}
+                                    onChange={(value) => this.props.countPageChange(value)}/>
+                            </Subheader>
                             {this.props.news.map(news => (
                                 <GridTile
                                     key={`http://relefopt.ru${news.PREVIEW_PATH}`}

@@ -4,26 +4,26 @@ export const COUNT_NEWS_CHANGE = 'COUNT_NEWS_CHANGE';
 export const SORT_NEWS_CHANGE = 'SORT_NEWS_CHANGE';
 export const NEWS_LOADED = 'NEWS_LOADED';
 
-export const loadNews = (paging) => ({
+export const loadNews = (val) => ({
     type: LOAD_NEWS,
-    payload: paging,
+    payload: val,
 });
 
-export const countPageChange = (count) => ({
+export const countPageChange = (val) => ({
     type: COUNT_PAGE_CHANGE,
-    payload: count,
+    payload: val,
 });
 
-export const countNewsChange = (count) => ({
+export const countNewsChange = (val) => ({
     type: COUNT_NEWS_CHANGE,
-    payload: count,
+    payload: val,
 });
-export const sortNewsChange = (field) => ({
+export const sortNewsChange = (val) => ({
     type: SORT_NEWS_CHANGE,
-    payload: field,
+    payload: val,
 });
 
-export const newsLoaded = (news) => ({
+export const newsLoaded = (val) => ({
     type: NEWS_LOADED,
-    payload: news,
+    payload: val,
 });

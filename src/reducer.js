@@ -8,9 +8,9 @@ import {
 export default (state, action = {}) => {
     switch (action.type) {
         case COUNT_NEWS_CHANGE:
-            return {...state, paging: {...state.paging, newsPage: action.payload}};
+            return {...state, paging: {...state.paging, countNewsOnPage: action.payload}};
         case COUNT_PAGE_CHANGE:
-            return {...state, paging: {...state.paging, currentPage: action.payload}};
+            return {...state, paging: {...state.paging, selectPage: action.payload}};
         case SORT_NEWS_CHANGE:
             return {...state, fieldSort: action.payload};
         case NEWS_LOADED:
