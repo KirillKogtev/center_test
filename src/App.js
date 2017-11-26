@@ -41,15 +41,15 @@ class App extends Component {
                         </ToolbarGroup>
                         <ToolbarGroup>
                             <ToolbarTitle text="Новостей на странице:" style={styles.toolbarTitle}/>
-                            <DropDownMenu>
+                            <DropDownMenu value={this.props.paging.countNewsOnPage} onChange={(event, index, value) => this.props.countNewsChange(value)}>
                                 <MenuItem value={6} primaryText="6 новостей"/>
                                 <MenuItem value={12} primaryText="12 новостей"/>
                                 <MenuItem value={24} primaryText="24 новости"/>
                             </DropDownMenu>
                             <ToolbarTitle text="Сортировать:" style={styles.toolbarTitle}/>
-                            <DropDownMenu value={this.state.value}>
-                                <MenuItem value={1} primaryText="По дате" />
-                                <MenuItem value={2} primaryText="По названию" />
+                            <DropDownMenu value={this.props.fieldSort} onChange={(event, index, value) => this.props.sortNewsChange(value)}>
+                                <MenuItem value={0} primaryText="По дате" />
+                                <MenuItem value={1} primaryText="По названию" />
                             </DropDownMenu>
                         </ToolbarGroup>
                     </Toolbar>
