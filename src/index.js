@@ -9,12 +9,12 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import {loadNews} from "./actions";
 import initialState from './store';
 import reducer from './reducer';
-import {loadNewsSaga} from './newsDownload'
+import {newsDownload} from './newsDownload'
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
-sagaMiddleware.run(loadNewsSaga);
+sagaMiddleware.run(newsDownload);
 store.dispatch(loadNews(initialState.paging));
 
 ReactDOM.render(

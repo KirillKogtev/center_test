@@ -15,7 +15,7 @@ export default getMuiTheme({
         clockCircleColor: '#fff',
     },
     toolbar: {
-        backgroundColor: '#F9D247',
+        backgroundColor: '#F9D147',
     },
     toolbar_title: {
         fontSize: 12,

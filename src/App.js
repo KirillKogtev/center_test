@@ -53,14 +53,20 @@ class App extends Component {
                     <div style={styles.root}>
                         <GridList
                             cols={3}
+                            style={styles.gridList}
                         >
                             <Subheader>
-                                Новости
-                                <Pagination
-                                    total={this.props.paging.allPages}
-                                    current={this.props.paging.selectPage}
-                                    display={5}
-                                    onChange={(value) => this.props.countPageChange(value)}/>
+                                <div style={styles.subheader}>
+                                    <div styles={styles.pagination}>
+                                        Новости
+                                    </div>
+                                    <Pagination
+                                        total={this.props.paging.allPages}
+                                        current={this.props.paging.selectPage}
+                                        display={5}
+                                        onChange={(value) => this.props.countPageChange(value)}
+                                    />
+                                </div>
                             </Subheader>
                             {this.props.news.map(news => (
                                 <GridTile
